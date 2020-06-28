@@ -3,6 +3,8 @@ class Credentials:
     Class that generates new instances of credentials.
     """
 
+    credentials_list = []
+
     def __init__(self, account_name, user_name, password):
         """
         __init__ method that helps us define properties for our objects.
