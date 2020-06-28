@@ -62,7 +62,7 @@ class TestCredentials(unittest.TestCase):
         test method that returns a list of all credentials saved
         '''
 
-        self.assertEqual(Credentials.display_contacts(),
+        self.assertEqual(Credentials.display_credentials(),
                          Credentials.credentials_list)
 
 

@@ -29,3 +29,10 @@ class Credentials:
         method deletes saved credentials from the credentials list
         '''
         Credentials.credentials_list.remove(self)
+
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method displays saved credentials
+        '''
+        return cls.credentials_list
