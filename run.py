@@ -20,8 +20,10 @@ def main():
             print("Enter Password .....")
             lg_password = input()
 
-#  Validate the password and #username inputted is correct. If #so, call the credentials #function. If not, print("Wrong #username or password. Please try #again.")
+# Validate the password and username inputted is correct. If so, call the credentials function. If not, print("Wrong username or password. Please try again.")
 
+# If sign up username and password = login username and password, execute credentilas fxn.
+# else, print("Wrong username or password. Please try again.")
         elif short_code == "su":
             print("Create an account")
             print("-"*10)
@@ -46,3 +48,8 @@ def main():
             break
         else:
             print("Wrong short code. Please try again.")
+
+
+if __name__ == '__main__':
+
+    main()
