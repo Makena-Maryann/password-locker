@@ -3,6 +3,21 @@ from user import User
 from credentials import Credentials
 
 
+def create_user(lg_name, lg_passcode):
+    '''
+    Function to create a new user
+    '''
+    new_user = User(lg_name, lg_passcode)
+    return new_user
+
+
+def save_new_user(user):
+    '''
+    Function to save new user
+    '''
+    user.save_user()
+
+
 def create_credential(aname, uname, password):
     '''
     Function to create a new credential
@@ -33,8 +48,6 @@ def display_credential():
 
 
 def creds_list():
-    print("Hi there, Welcome to your credentials list.")
-
     print("What would you like to do?")
     print('\n')
 
@@ -102,26 +115,10 @@ def main():
         print("Use these short codes : lg - login into your account, su - sign up, ex - exit the password locker")
 
         short_code = input().lower()
-        if short_code == 'lg':
-            print("Enter Username .....")
-            lg_username = input()
 
-            print("Enter Password .....")
-            lg_password = input()
-
-# Validate the password and username inputted is correct. If so, call the credentials function. If not, print("Wrong username or password. Please try again.")
-
-# If sign up username and password = login username and password, execute credentilas fxn.
-# else, print("Wrong username or password. Please try again.")
-        elif short_code == "su":
+        if short_code == "su":
             print("Create an account")
             print("-"*10)
-
-            print("Full name ....")
-            f_name = input()
-
-            print("Email address ....")
-            e_address = input()
 
             print("Username ....")
             u_name = input()
@@ -129,9 +126,44 @@ def main():
             print("Password ....")
             p_word = input()
 
-# Create user instance and save it for use in the login.
-            print("Account created successfully!")
-# Initiate login
+            save_new_user(create_user(u_name, p_word))
+            print('\n')
+            print(f"Congratulations {u_name}. Account created successfully!")
+            print('\n')
+            print("Please login....")
+            print("Enter Username .....")
+            lg_username = input()
+
+            print("Enter Password .....")
+            lg_password = input()
+
+            if u_name != lg_username or p_word != lg_password:
+                print("Invalid username or password!")
+                print("Enter Username .....")
+                lg_username = input()
+
+                print("Enter Password .....")
+                lg_password = input()
+
+            else:
+                print(
+                    f"Hi {lg_username}, Welcome to your password locker account.")
+                creds_list()
+
+        elif short_code == 'lg':
+            print("Enter Username .....")
+            sample_user = input()
+
+            print("Enter Password .....")
+            sample_password = input()
+
+            if sample_user != 'newuser' or sample_password != 'pass254':
+                print("Account does not exist.Please create an account to login.")
+
+            else:
+                print("Hi, Welcome to your password locker account.")
+                creds_list()
+
         elif short_code == "ex":
             print("Bye ......")
             break
