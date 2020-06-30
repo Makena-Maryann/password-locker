@@ -146,8 +146,10 @@ def main():
                 lg_password = input()
 
             else:
+                print('\n')
                 print(
                     f"Hi {lg_username}, Welcome to your password locker account.")
+                print('\n')
                 creds_list()
 
         elif short_code == 'lg':
