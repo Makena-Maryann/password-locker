@@ -1,6 +1,6 @@
 # Password Locker
 
-#### A Python application that allows a user to create an account and login to store passwords of their defferent accounts.
+#### A Python application that allows a user to create an account and login to store passwords of their different accounts.
 
 #### By **Maryann Makena**
 
