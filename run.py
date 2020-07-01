@@ -1,6 +1,8 @@
 #!/usr/bin/env python3.6
 from user import User
 from credentials import Credentials
+import random
+import string
 
 
 def create_user(lg_name, lg_passcode):
@@ -25,6 +27,12 @@ def create_credential(aname, uname, password):
     new_credentials = Credentials(aname, uname, password)
     return new_credentials
 
+def generate_password(length=8):
+    '''
+    Function to generate a password
+    '''
+    password_characters = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(password_characters) for i in range(length))    
 
 def save_credential(credential):
     '''
@@ -52,14 +60,11 @@ def creds_list():
     print('\n')
 
     while True:
-        print("Please use these codes to state what you want: cc - create a new credential, dc - display all the available credentials, del - delete a credential, ex - exit the credentials list")
+        print("Please use these codes to state what you want: ac - add an existing credential cc - create a new credential, dc - display all the available credentials, del - delete a credential, ex - exit the credentials list")
 
         short_code = input().lower()
 
-        if short_code == 'cc':
-            print("New Credential")
-            print("-"*10)
-
+        if short_code == 'ac':
             print("Account name ....")
             a_name = input()
 
@@ -73,6 +78,32 @@ def creds_list():
             print('\n')
             print(f"{a_name} account credentials saved")
             print("\n")
+        
+        elif short_code == 'cc':
+            print("New Credential")
+            print("-"*10)
+
+            print("Account name ....")
+            a_name = input()
+
+            print("Username ....")
+            u_name = input()
+
+            print("Use the codes: \n gp - to generate a password \n kp - to key in your own password")
+            code = input().lower()
+            if code == 'gp':
+                passcode = generate_password()
+                print(passcode)
+            elif code == 'kp':
+                 print("Password ....")
+                 passcode = input()
+            else:
+               print("Wrong short code. Please try again.")
+
+            save_credential(create_credential(a_name, u_name, passcode))
+            print('\n')
+            print(f"{a_name} account credentials saved")
+            print("\n")            
 
         elif short_code == 'dc':
             if display_credential():
