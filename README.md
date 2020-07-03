@@ -6,12 +6,12 @@
 
 ## Setup/Installation Requirements
 
-- To run the app, install Python3.
+- To run the app, install <mark style="background-color:grey">Python3</mark>
 - Then :
-     1. git clone https://github.com/Makena-Maryann/password-locker
-     2. cd password_locker
-     3. Use the command: python3 run.py to run the app
-     4. Use the command: python3 -m unittest to run the tests
+     1. <mark style="background-color:grey">git clone https://github.com/Makena-Maryann/password-locker</mark>
+     2. <mark style="background-color:grey">cd password-locker</mark>
+     3. Use the command: <mark style="background-color:grey">python3 run.py</mark>to run the app
+     4. Use the command: <mark style="background-color:grey">python3 -m unittest</mark>to run the tests
 
        
 ## Known Bugs
