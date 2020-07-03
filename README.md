@@ -11,7 +11,7 @@
      1. `git clone https://github.com/Makena-Maryann/password-locker`
      2. `cd password-locker`
      3. `python3 run.py` to run the app
-     4. `python3 -m unittest` to run the tests
+     4. `python3 user_test.py` & `python3 credentials_test.py` to run the tests
 
        
 ## Known Bugs
